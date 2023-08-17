@@ -48,7 +48,7 @@ if st.button('Verify'):
             st.error('Invalid code or code already used.')
 # Note: For security, you should also display the attendee's name for confirmation.
 # Display attendance count
-attendees = session.read.table("ATTENDEES")
+attendees = session.read.table("EMP")
 attendance_count = attendees.filter(attendees["attended"] == True).count()
 st.write(f'Total Attended: {attendance_count}')
 
