@@ -9,12 +9,12 @@ import streamlit as st
 
 # snowpark connection
 CONNECTION_PARAMETERS = {
-    "user"="darshan8",
-    "password"="Darsh@1234",
-    "account"="go52266.ap-south-1",
-    "warehouse"="COMPUTE_WH",
-    "database"="NEXUS",
-    "schema"="history_makers", 
+    "account": st.secrets["account"], 
+   "user": st.secrets["user"],
+   "password": st.secrets["password"],
+    "database": st.secrets["database"],
+   "schema": st.secrets["schema"],
+   "warehouse": st.secrets["warehouse"], 
 }
 
 
