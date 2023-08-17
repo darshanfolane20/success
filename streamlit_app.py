@@ -49,6 +49,6 @@ if st.button('Verify'):
 # Note: For security, you should also display the attendee's name for confirmation.
 # Display attendance count
 attendees = session.read.table("EMP")
-attendance_count = attendees.filter(attendees["attended"] == True).count()
-st.write(f'Total Attended: {attendance_count}')
+# attendance_count = attendees.filter(attendees["attended"] == True).count()
+# st.write(f'Total Attended: {attendance_count}')
 
