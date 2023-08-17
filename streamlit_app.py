@@ -19,16 +19,16 @@ CONNECTION_PARAMETERS = {
 
 
 # create session
-conn = Session.builder.configs(CONNECTION_PARAMETERS).create()
+session = Session.builder.configs(CONNECTION_PARAMETERS).create()
 
 
 def verify_code(verification_code):
-    cursor = conn.cursor()
+    cursor = session.cursor()
     cursor.execute(f"SELECT * FROM EMP WHERE code = '{verification_code}' AND attended = FALSE")
     attendee_data = cursor.fetchone()
     if attendee_data:
         cursor.execute(f"UPDATE EMP SET attended = TRUE WHERE code = '{verification_code}'")
-        conn.commit()
+        session.commit()
         return True
     else:
         return False
@@ -41,7 +41,7 @@ if st.button('Verify'):
         else:
             st.error('Invalid code or code already used.')
 # Display attendance count
-cursor = conn.cursor()
+cursor = session.cursor()
 cursor.execute("SELECT COUNT(*) FROM attendees WHERE attended = TRUE")
 attendance_count = cursor.fetchone()[0]
 st.write(f'Total Attended: {attendance_count}')
