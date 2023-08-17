@@ -25,4 +25,7 @@ session = Session.builder.configs(CONNECTION_PARAMETERS).create()
 
 
 attendees = session.read.table("EMP")
-print(attendees.show())
+# print(attendees.show())
+st.write(attendees)
+
+
